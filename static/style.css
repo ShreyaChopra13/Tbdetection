@@ -5,9 +5,8 @@ body, html{
   font-family:"Lato", sans-serif;
   font-weight:400;
   line-height:1.8em;
-  color: white  ;
-  background-color: #282e34;
-  /* color:rgb(214, 10, 10); */
+  color: rgb(0, 0, 0)  ;
+  background-color: #b9f5ff;
 }
 
 .pimg1, .pimg2, .pimg3{
@@ -23,29 +22,11 @@ body, html{
   background-attachment:fixed;
 }
 
-.pimg1{
-  /* background-image:url('img/lungs.jpg'); */
-  /* min-height:100px; */
-}
-
-.pimg2{
-  /* background-image:url('img/img1.jpg'); */
-  /* min-height:100px; */
-}
-
 .section{
   text-align:center;
   padding:50px 80px;
 }
 
-.section-dark{
-  /* color:#030000; */
-  /* color:#ddd; */
-  
-}
-.card-body{
-  /* color: #101922; */
-}
 
 @media(max-width:568px){
   .pimg1, .pimg2, .pimg3{
@@ -55,3 +36,5 @@ body, html{
 .card{
   margin: 0 auto;
 }
+.fas fa-user-md{
+    color: black;}
