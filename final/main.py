@@ -12,3 +12,9 @@ def index1():
 @login_required
 def profile():
     return render_template('profile.html',name=current_user.name)
+
+
+@main.route('/abouttb')
+# @login_required
+def abouttb():
+    return render_template('abouttb.html')

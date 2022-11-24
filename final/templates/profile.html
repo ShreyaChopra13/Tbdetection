@@ -4,6 +4,7 @@
 <h1 class="title">
   Welcome,{{ name }}
 </h1>
-<p>Upload your xray for TB Detection</p>
-<!-- <a href="localhost:5000/model"></a> -->
+<p class="about">Upload your xray for TB Detection</p>
+<!-- <a href="localhost:5000/">Click here to know more about TB</a> -->
+ <p><a href="{{ url_for('main.abouttb') }}">Click here</a> to know more about TB</p>
 {% endblock %}
