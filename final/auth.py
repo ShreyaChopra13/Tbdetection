@@ -37,22 +37,20 @@ def login_post():
 def signup():
     return render_template('signup.html')
 
-
-
-
-
-
-
-
-
-
-
 @auth.route('/signup', methods=['POST'])
 def signup_post():
     # code to validate and add user to database goes here
     email = request.form.get('email')
     name = request.form.get('name')
     password = request.form.get('password')
+    firstname = request.form.get('firstname')
+    lastname = request.form.get('lastname')
+    age= request.form.get('age')
+    bp=request.form.get('bp')
+    bs=request.form.get('bs')
+    cough=request.form.get('cough')
+    pasttb=request.form.get('pasttb')
+    weight=request.form.get('weight')
 
     user = User.query.filter_by(email=email).first() # if this returns a user, then the email already exists in database
 
@@ -61,7 +59,7 @@ def signup_post():
         return redirect(url_for('auth.signup'))
 
     # create a new user with the form data. Hash the password so the plaintext version isn't saved.
-    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'))
+    new_user = User(email=email, name=name, password=generate_password_hash(password, method='sha256'),firstname=firstname,lastname=lastname,age=age,bp=bp,bs=bs,cough=cough,pasttb=pasttb,weight=weight)
 
     # add the new user to the database
     db.session.add(new_user)
@@ -79,3 +77,27 @@ def logout():
     # return 'Logout
     logout_user()
     return redirect(url_for('main.index1'))
+
+# @auth.route('/dashboard')
+# def dashboard():
+#     return render_template('dashboard.html')
+
+
+
+
+# @auth.route('/dashboard',methods=['POST'])
+# @login_required
+# def dashboard_post():
+#     firstname = request.form.get('firstname')
+#     lastname = request.form.get('lastname')
+#     age= request.form.get('age')
+#     bp=request.form.get('bp')
+#     bs=request.form.get('bs')
+#     cough=request.form.get('cough')
+#     pasttb=request.form.get('pasttb')
+#     weight=request.form.get('weight')
+#     new_user =Vitals(firstname=firstname,lastname=lastname,age=age,bp=bp,bs=bs,cough=cough,pasttb=pasttb,weight=weight)
+#     db.session.add(new_user)
+#     db.session.commit()
+#     return redirect(url_for('main.profile'))
+    
